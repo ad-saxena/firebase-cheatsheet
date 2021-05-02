@@ -99,5 +99,14 @@ var firebaseConfig = {
         Ready();
         firebase.database().ref('Ad/'+rollV).remove();
     }
+//function to count node
+function checkp(){
+    var userIdad= firebase.auth().currentUser.uid;
+    console.log(userIdad)
+    firebase.database().ref('History/'+userIdad+'/').on('value',(snap)=>{
+      var totalRecord =  snap.numChildren();
+      console.log("Total Record ad: "+totalRecord);
+    });
+  }
 
     
